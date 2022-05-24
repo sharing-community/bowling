@@ -1,0 +1,99 @@
+.wrapper-configuration {
+  @apply w-full h-full;
+  @apply flex flex-col gap-6;
+  h3 {
+    @apply font-serif text-h3 font-bold uppercase text-amber-700 text-center py-4;
+  }
+
+  &__actions {
+    @apply w-full h-16 rounded-md;
+    @apply flex justify-center items-center;
+
+    &.start {
+      @apply bg-green-700;
+    }
+
+    &.reset {
+      @apply bg-red-400;
+    }
+
+    span {
+      @apply text-b1 font-ibm font-semibold text-white;
+    }
+
+    &:hover {
+      @apply opacity-60;
+    }
+  }
+
+  &__pins {
+    @apply w-full flex gap-4;
+    button {
+      @apply w-[calc(50%-8px)] h-[62px] rounded-lg;
+      @apply bg-teal-700;
+      span {
+        @apply text-b1 font-ibm font-semibold text-white;
+      }
+
+      &:hover {
+        @apply opacity-60;
+      }
+    }
+  }
+
+  &__players {
+    @apply flex flex-col gap-4;
+
+    &__header {
+      @apply flex items-center justify-between h-10;
+      h5 {
+        @apply font-mono text-h5 font-medium text-neutral-900;
+
+        span {
+          @apply text-amber-900;
+        }
+      }
+
+      button {
+        @apply rounded-md h-10 px-6 text-green-700 font-mono font-bold;
+        @apply border border-4 border-green-700;
+
+        &:hover {
+          @apply opacity-60;
+        }
+      }
+    }
+
+    &__list {
+      @apply flex flex-col gap-4 overflow-y-auto;
+      &::-webkit-scrollbar {
+        width: 0; /* width of the entire scrollbar */
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent; /* color of the tracking area */
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: transparent; /* color of the scroll thumb */
+        border-radius: 0; /* roundness of the scroll thumb */
+        border: 0 solid transparent; /* creates padding around scroll thumb */
+      }
+
+      &__item {
+        @apply relative;
+        div {
+          @apply absolute right-4 top-1/2 transform -translate-y-1/2 z-10 font-mono text-white font-bold;
+          @apply w-6 h-6;
+          @apply bg-red-600 rounded-full;
+          @apply flex justify-center items-center;
+          @apply cursor-pointer;
+
+          &:hover {
+            @apply bg-red-400;
+          }
+        }
+      }
+    }
+  }
+}

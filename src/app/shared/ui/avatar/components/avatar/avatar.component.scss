@@ -1,0 +1,7 @@
+.wrapper-avatar {
+  @apply w-8 h-8 rounded-full border border-solid border-green-800 bg-teal-200;
+  @apply flex justify-center items-center;
+  span {
+    @apply text-b5 font-ibm font-semibold text-neutral-900;
+  }
+}

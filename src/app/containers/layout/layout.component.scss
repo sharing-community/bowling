@@ -1,0 +1,20 @@
+.wrapper-layout {
+  @apply w-screen h-screen overflow-x-hidden overflow-y-auto bg-green-200;
+  h1 {
+    @apply font-serif text-h1 font-bold uppercase text-sky-900 text-center py-8;
+  }
+  &__container {
+    @apply w-full min-h-[80vh] px-8;
+    @apply flex gap-12;
+
+    &__configuration {
+      @apply w-1/4 p-4;
+      @apply rounded-lg border-4 border-solid border-amber-700;
+    }
+
+    &__bowling {
+      @apply w-3/4 p-4;
+      @apply rounded-lg border-4 border-solid border-green-700;
+    }
+  }
+}

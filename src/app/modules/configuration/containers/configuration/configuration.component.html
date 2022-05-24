@@ -1,0 +1,34 @@
+<div class="wrapper-configuration">
+  <h3>Configuration</h3>
+  <ng-container *ngrxLet="state$; let state">
+    <div *ngIf="state.start" class="wrapper-configuration__pins">
+      <div class="w-[calc(50%-8px)]">
+        <game-input label="Pins">
+          <input placeholder="Pins" type="number" max="10" min="0" [formControl]="pins" gameInput />
+        </game-input>
+      </div>
+      <button (click)="roll()">
+        <span>ROLL</span>
+      </button>
+    </div>
+    <button class="wrapper-configuration__actions {{state.start ? 'reset' : 'start'}}" (click)="change(state.start)">
+        <span>{{state.start ? 'Reset Game' : 'Start Game'}}</span>
+    </button>
+    <div class="wrapper-configuration__players">
+      <div class="wrapper-configuration__players__header">
+        <h5>Players (<span>{{formArray.length}}</span>)</h5>
+        <button *ngIf="!state.start" (click)="register()">Add New Player</button>
+      </div>
+      <div class="wrapper-configuration__players__list {{state.start ? 'max-h-[380px]' : 'max-h-[450px]'}}">
+        <ng-container *ngFor="let control of formArray.controls; let i = index">
+          <div class="wrapper-configuration__players__list__item">
+            <div *ngIf="!state.start" (click)="formArray.removeAt(i)">x</div>
+            <game-input [label]="'Player - [' + (i + 1) + ']'">
+              <input placeholder="Player name" [readOnly]="state.start" gameInput [formControl]="getControl(i)" />
+            </game-input>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+</div>

@@ -1,0 +1,47 @@
+<div class="wrapper-player">
+  <table>
+    <thead>
+      <tr>
+        <th colspan="11">{{player.name}}</th>
+      </tr>
+      <tr>
+        <th>Frame</th>
+        <ng-container *ngFor="let frame of player.frames; let i = index">
+          <th>{{i + 1}}</th>
+        </ng-container>
+      </tr>
+      </thead>
+    <tbody>
+    <tr>
+      <td>Frame Score</td>
+      <ng-container *ngFor="let frame of player.frames; let i = index">
+        <td>
+          <ng-container [ngSwitch]="frame.status">
+            <ng-container *ngSwitchDefault></ng-container>
+            <ng-container *ngSwitchCase="FrameStatus.Rolling">
+              <span class="text-gray-500 text-b3">{{frame.scores[0]}}</span>
+            </ng-container>
+            <ng-container *ngSwitchCase="FrameStatus.OpenFrame">
+              <span class="text-b3 text-neutral-500">{{frame.scores[0]}} / {{frame.scores[1]}} <br> (Open-Frame)</span>
+            </ng-container>
+            <ng-container *ngSwitchCase="FrameStatus.Spare">
+              <span class="text-b3 text-yellow-500">{{frame.scores[0]}} / {{frame.scores[1]}} <br> (Spare)</span>
+            </ng-container>
+            <ng-container *ngSwitchCase="FrameStatus.Strike">
+              <span class="text-b1-medium text-green-500">10 <br> (Strike)</span>
+            </ng-container>
+          </ng-container>
+        </td>
+      </ng-container>
+    </tr>
+    <tr>
+      <td>Total Score</td>
+      <ng-container *ngFor="let frame of player.renderFrames; let i = index">
+        <td>
+          <span>{{frame}}</span>
+        </td>
+      </ng-container>
+    </tr>
+    </tbody>
+  </table>
+</div>

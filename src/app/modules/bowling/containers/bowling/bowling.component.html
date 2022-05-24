@@ -1,0 +1,8 @@
+<div class="wrapper-bowling">
+  <ng-container *ngrxLet="state$; let state">
+    <h3>Player Board</h3>
+    <ng-container *ngFor="let player of state.players">
+      <game-player [player]="player"></game-player>
+    </ng-container>
+  </ng-container>
+</div>

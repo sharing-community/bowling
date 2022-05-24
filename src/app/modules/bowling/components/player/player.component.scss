@@ -1,0 +1,18 @@
+.wrapper-player {
+  @apply w-full h-full;
+
+  table {
+    @apply w-full border-4;
+    th, td {
+      @apply border-4 w-16 text-center border-neutral-500;
+    }
+
+    th {
+      @apply h-12;
+    }
+
+    td {
+      @apply h-16;
+    }
+  }
+}
